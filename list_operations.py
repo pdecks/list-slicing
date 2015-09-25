@@ -18,7 +18,7 @@
 #
 # DO NOT USE ANY OF THE BUILT IN LIST METHODS, OR len(l)
 
-FURTHER_STUDY = False
+FURTHER_STUDY = True
 
 
 def head(input_list):
@@ -166,7 +166,7 @@ def inner_four_end(input_list):
 
     """
 
-    x = input_list[-6:-2]
+    x = input_list[-6:-2]# DO NOT USE ANY OF THE BUILT IN LIST METHODS, OR len(l)
 
     return x
 
@@ -231,7 +231,8 @@ def replace_middle(input_list):
 
 def delete_third_and_seventh(input_list):
     """
-    Remove the third and seventh elements of the input list and return
+    Remove the third and seventh 
+    input_list[-1:] = [elements of the input list and return
     nothing.
 
     For example:
@@ -243,6 +244,7 @@ def delete_third_and_seventh(input_list):
 
     """
 
+    # del is an alternate solution
     input_list.pop(2)
     input_list.pop(5) # accounts for the shortened list
 
@@ -289,18 +291,22 @@ def delete_middle(input_list):
 # # the test_list_operations.py file for concrete examples of expected behavior.
 
 
-# def custom_len(input_list):
-#     """
-#     like len(input_list), should return the number of items in the list
+def custom_len(input_list):
+    """
+    like len(input_list), should return the number of items in the list
 
-#     For example:
+    For example:
 
-#     >>> custom_len(['Do', 'Re', 'Mi', 'Fa', 'So', 'La', 'Ti', 'Do'])
-#     8
+    >>> custom_len(['Do', 'Re', 'Mi', 'Fa', 'So', 'La', 'Ti', 'Do'])
+    8
 
-#     """
+    """
+    
+    i = 0
+    for item in input_list:
+        i += 1
 
-#     return 0
+    return i
 
 
 # # For the next four exercises, you'll need to be clever and think about ways
@@ -312,55 +318,63 @@ def delete_middle(input_list):
 # # in different ways so it sticks in your brain.
 
 
-# def custom_append(input_list, value):
-#     """
-#     like input_list.append(value), should add the value to the end of the list
-#     and return nothing.
+def custom_append(input_list, value):
+    """
+    like input_list.append(value), should add the value to the end of the list
+    and return nothing.
 
-#     For example:
+    For example:
 
-#     >>> notes = ['Do', 'Re', 'Mi', 'Fa', 'So', 'La', 'Ti', 'Do']
-#     >>> custom_append(notes, 'Re')
-#     >>> notes == ['Do', 'Re', 'Mi', 'Fa', 'So', 'La', 'Ti', 'Do', 'Re']
-#     True
+    >>> notes = ['Do', 'Re', 'Mi', 'Fa', 'So', 'La', 'Ti', 'Do']
+    >>> custom_append(notes, 'Re')
+    >>> notes == ['Do', 'Re', 'Mi', 'Fa', 'So', 'La', 'Ti', 'Do', 'Re']
+    True
+   
 
-#     """
+    """
+   
+    input_list[-1:] = [input_list[-1], value]
 
-#     pass
-
-
-# def custom_extend(input_list, second_list):
-#     """
-#     like input_list.extend(second_list), should append every item in the second
-#     list to the end of the first list and return nothing
-
-#     For example:
-
-#     >>> months = ['Jan', 'Feb', 'Mar']
-#     >>> custom_extend(months, ['Apr', 'May'])
-#     >>> months == ['Jan', 'Feb', 'Mar', 'Apr', 'May']
-#     True
-
-#     """
-
-#     pass
+    pass
 
 
-# def custom_insert(input_list, index, value):
-#     """
-#     like input_list.insert(index, value), should insert (not replace) the value
-#     at the specified index of the input list and return nothing
+def custom_extend(input_list, second_list):
+    """
+    like input_list.extend(second_list), should append every item in the second
+    list to the end of the first list and return nothing
 
-#     For example:
+    For example:
 
-#     >>> months = ['Jan', 'Mar']
-#     >>> custom_insert(months, 1, 'Feb')
-#     >>> months == ['Jan', 'Feb', 'Mar']
-#     True
+    >>> months = ['Jan', 'Feb', 'Mar']
+    >>> custom_extend(months, ['Apr', 'May'])
+    >>> months == ['Jan', 'Feb', 'Mar', 'Apr', 'May']
+    True
 
-#     """
+    """
 
-#     pass
+    for item in second_list:
+        custom_append(input_list, item)
+
+    pass
+
+
+def custom_insert(input_list, index, value):
+    """
+    like input_list.insert(index, value), should insert (not replace) the value
+    at the specified index of the input list and return nothing
+
+    For example:
+
+    >>> months = ['Jan', 'Mar']
+    >>> custom_insert(months, 1, 'Feb')
+    >>> months == ['Jan', 'Feb', 'Mar']
+    True
+
+    """
+
+    input_list[index:index] = [value]
+
+    pass
 
 
 # def custom_remove(input_list, value):
@@ -450,7 +464,8 @@ def delete_middle(input_list):
 
 #     For example:
 
-#     >>> custom_contains([0, 3, 6, 9, 12, 15, 18, 21, 24], 23)
+#     >>> custom_c
+#     return Noneontains([0, 3, 6, 9, 12, 15, 18, 21, 24], 23)
 #     False
 
 #     >>> custom_contains([0, 3, 6, 9, 12, 15, 18, 21, 24], 24)
